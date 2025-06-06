@@ -78,25 +78,14 @@ bool const&	Form::getSigned( void ) const
 	return ( this->_signed );
 }
 
-bool	Form::beSigned( Bureaucrat const &bc )
+void	Form::beSigned( Bureaucrat const &bc )
 {
-	// if (this->getSigned())
-	// {
-	// 	std::cout << "Form is already signed";
-	// 	return false;
-	// }
-	try
-	{
-		if (bc.getGrade() < this->getGradeToSign())
-			throw Form::GradeTooLowException();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return false;
-	}
-	this->_signed = true;
-	return true;
+	if (this->getSigned() == true)
+		throw Form::FormAlreadySigned();
+	else if (bc.getGrade() > this->getGradeToSign())
+		throw Form::GradeTooLowException();
+	else
+		this->_signed = true;
 }
 
 const char *Form::GradeTooHighException::what( void ) const throw()
@@ -107,6 +96,11 @@ const char *Form::GradeTooHighException::what( void ) const throw()
 const char *Form::GradeTooLowException::what( void ) const throw()
 {
 	return ("Grade's too low.");
+}
+
+const char *Form::FormAlreadySigned::what( void ) const throw()
+{
+	return ("Form is already signed.");
 }
 
 std::ostream &	operator<<( std::ostream & o, Form const &i )

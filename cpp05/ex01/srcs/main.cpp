@@ -31,5 +31,9 @@ int main()
 
 	Form a("Contract", 1, 1);
 	Patrick.signForm(a);
+
+	Boss.signForm(a);
+	Bureaucrat	Vice("Vice Pres", 2);
+	Vice.signForm(a);
 	return 0;
 }

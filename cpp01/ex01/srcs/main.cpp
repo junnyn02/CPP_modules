@@ -20,8 +20,7 @@ int	main( void )
 	std::cout << "------------------------------" << std::endl;
 	
 	int N = 42;
-	Zombie *newZ;
-	newZ = zombieHorde( N, "horde");
+	Zombie *newZ = zombieHorde( N, "horde");
 	for (int i = 0; i < N; i++)
 	{
 		std::cout << i + 1 << " : ";

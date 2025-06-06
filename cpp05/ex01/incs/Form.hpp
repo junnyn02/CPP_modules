@@ -38,14 +38,21 @@ class	Form
 		unsigned int const	&getGradeToExec( void ) const;
 		bool const			&getSigned( void ) const;
 
-		bool	beSigned( Bureaucrat const & bc );
+		void	beSigned( Bureaucrat const & bc );
 		
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
+
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class FormAlreadySigned : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
