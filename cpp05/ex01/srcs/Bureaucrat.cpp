@@ -28,13 +28,13 @@ Bureaucrat::Bureaucrat( std::string const & name, unsigned int grade ) : _name(n
 			throw Bureaucrat::GradeTooHighException();
 		if (grade > 150)
 			throw Bureaucrat::GradeTooLowException();
+		_grade = grade;
 	}
 	catch (std::exception & e)
 	{
 		std::cerr << e.what() << " Default grade applied." << std::endl;
-		grade = 150;
+		_grade = 150;
 	}
-	_grade = grade;
 }
 
 Bureaucrat::~Bureaucrat( void )
@@ -74,13 +74,12 @@ void	Bureaucrat::signForm( Form &form )
 	try
 	{
 		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
-		return ;
 	}
-	std::cout << this->getName() << " signed " << form.getName() << std::endl;
 }
 
 const char *Bureaucrat::GradeTooHighException::what( void ) const throw()
@@ -99,13 +98,13 @@ void	Bureaucrat::incrementGrade( void )
 	{
 		if (this->_grade - 1 < 1)
 			throw Bureaucrat::GradeTooHighException();
+		this->_grade--;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << " Can't increment grade." << std::endl;
 		return ;
 	}
-	this->_grade--;
 }
 
 void	Bureaucrat::decrementGrade( void )
@@ -114,13 +113,13 @@ void	Bureaucrat::decrementGrade( void )
 	{
 		if (this->_grade + 1 > 150)
 			throw Bureaucrat::GradeTooLowException();
+		this->_grade++;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << " Can't decrement grade." << std::endl;
 		return ;
 	}
-	this->_grade++;
 }
 
 std::ostream &	operator<<( std::ostream & o, Bureaucrat const &i )

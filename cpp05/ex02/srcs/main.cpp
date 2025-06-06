@@ -11,43 +11,33 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
-	Bureaucrat	Bob("Bob", 152);
-	std::cout << Bob;
+	ShrubberyCreationForm a("target");
+	std::cout << a;
+	// Bureaucrat	Bob("Bob", 152);
+	// std::cout << Bob;
 
-	Bureaucrat	Patrick("Patrick", 150);
-	std::cout << Patrick;
-	Patrick.decrementGrade();
-	std::cout << Patrick;
+	// Bureaucrat	Patrick("Patrick", 150);
+	// std::cout << Patrick;
+	// Patrick.decrementGrade();
+	// std::cout << Patrick;
 
-	Bureaucrat	Boss("Boss", 2);
-	std::cout << Boss;
-	Boss.incrementGrade();
-	std::cout << Boss;
-	Boss.incrementGrade();
-	std::cout << Boss;
+	// Bureaucrat	Boss("Boss", 2);
+	// std::cout << Boss;
+	// Boss.incrementGrade();
+	// std::cout << Boss;
+	// Boss.incrementGrade();
+	// std::cout << Boss;
 
-	Form	*ptr;
-	try
-	{
-		ptr = new Form("Contract", 1, 1);
-		Patrick.signForm(*ptr);
-		Boss.signForm(*ptr);
-		Bureaucrat	Vice("Vice Pres", 2);
-		Vice.signForm(*ptr);
-		delete ptr;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
 	// Form a("Contract", 1, 1);
 	// Patrick.signForm(a);
 
 	// Boss.signForm(a);
 	// Bureaucrat	Vice("Vice Pres", 2);
 	// Vice.signForm(a);
+
 	return 0;
 }
