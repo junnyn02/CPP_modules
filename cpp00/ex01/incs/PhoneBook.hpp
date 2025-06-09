@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:44:02 by junguyen          #+#    #+#             */
-/*   Updated: 2025/03/26 16:17:45 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/09 12:19:58 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 # include "Contact.hpp"
 
-class PhoneBook {
-
+class PhoneBook
+{
 	private:
 		Contact	_contact[8];
 		int		_index; 
+
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
 		void	add_contact(std::string info[5]);
-		void	search_contact(void);
-		void	search_index(std::string index);
-		int		check_index(std::string input);
+		void	search_contact(void) const;
+		// void	search_index(std::string index) const;
 };
 
 #endif

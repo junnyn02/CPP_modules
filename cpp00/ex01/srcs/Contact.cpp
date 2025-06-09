@@ -6,21 +6,22 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 13:17:06 by junguyen          #+#    #+#             */
-/*   Updated: 2025/03/26 16:39:55 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/09 12:16:50 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void){
-	return;
+Contact::Contact(void)
+{
 }
 
-Contact::~Contact(void){
-	return;
+Contact::~Contact(void)
+{
 }
 
-void	Contact::set_contact(std::string info[5]){
+void	Contact::set_contact(std::string info[5])
+{
 	this->_firstName = info[0];
 	this->_lastName = info[1];
 	this->_nickname = info[2];
@@ -28,7 +29,8 @@ void	Contact::set_contact(std::string info[5]){
 	this->_darkestSecret = info[4];
 }
 
-void	Contact::search_display(void){
+void	Contact::search_display(void) const
+{
 	if (this->_firstName.size() > 10)
 		std::cout << std::setw(10) << this->_firstName.substr(0, 9) + '.' << "|"; 
 	else
@@ -43,7 +45,8 @@ void	Contact::search_display(void){
 		std::cout << std::setw(10) << this->_nickname << "|";
 }
 
-void	Contact::display_info(void){
+void	Contact::display_info(void) const
+{
 	std::cout << "First Name: " << this->_firstName << std::endl;
 	std::cout << "Last Name: " << this->_lastName << std::endl;
 	std::cout << "Nickname: " << this->_nickname << std::endl;

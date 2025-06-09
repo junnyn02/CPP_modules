@@ -6,24 +6,25 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:48:25 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 13:49:06 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/09 13:30:23 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void){
+PhoneBook::PhoneBook(void)
+{
 	std::cout << "Welcome in your PhoneBook" << std::endl;
 	_index = 0;
-	return;
 }
 
-PhoneBook::~PhoneBook(void){
+PhoneBook::~PhoneBook(void)
+{
 	std::cout << "End of PhoneBook" << std::endl;
-	return;
 }
 
-void	PhoneBook::add_contact(std::string info[5]){
+void	PhoneBook::add_contact(std::string info[5])
+{
 	if (_index >= 8)
 		_contact[_index % 8].set_contact(info);
 	else
@@ -34,7 +35,8 @@ void	PhoneBook::add_contact(std::string info[5]){
 	std::cout << "Contact added" << std::endl;
 }
 
-void	PhoneBook::search_contact(void){
+void	PhoneBook::search_contact(void) const
+{
 	std::string input;
 	for (int i = 0; i < 8; i++)
 	{
@@ -62,8 +64,4 @@ void	PhoneBook::search_contact(void){
 	}
 	else
 		std::cout << "Index must be between 1 and 8" << std::endl;
-}
-
-void	PhoneBook::search_index(std::string index){
-	std::cout << index << std::endl;
 }
