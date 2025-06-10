@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/15 12:36:26 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/10 14:47:40 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <iostream>
 # include <string>
 
-class Harl {
-	
+class Harl
+{
 	private:
 		void	debug( void );
 		void	info( void );
