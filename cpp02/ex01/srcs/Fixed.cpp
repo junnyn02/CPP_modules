@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/20 11:16:08 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/13 19:04:51 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Fixed::Fixed( const float nb )
 {
 	std::cout << "Float constructor called" << std::endl;
 	this->_fixedPoint = roundf(nb * (1 << _fractBits));
+	std::cout << _fixedPoint << std::endl;
 }
 
 Fixed::~Fixed( void )
