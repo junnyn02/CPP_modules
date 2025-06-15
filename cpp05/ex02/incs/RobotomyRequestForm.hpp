@@ -10,23 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# include <cstdlib>
+# include <ctime>
 
-class	ShrubberyCreationForm : public AForm
+class	RobotomyRequestForm : public AForm
 {	
 	public:
-		ShrubberyCreationForm( void );
-		ShrubberyCreationForm( std::string const &target );
-		ShrubberyCreationForm( ShrubberyCreationForm const & cpy );
-		virtual ~ShrubberyCreationForm( void );
+		RobotomyRequestForm( void );
+		RobotomyRequestForm( std::string const &target );
+		RobotomyRequestForm( RobotomyRequestForm const & cpy );
+		virtual ~RobotomyRequestForm( void );
 
 		virtual void do_exec(void) const;
-		// virtual void	execute( Bureaucrat const & executor ) const;
 
-		ShrubberyCreationForm &	operator=( ShrubberyCreationForm const & assign );
+		RobotomyRequestForm &	operator=( RobotomyRequestForm const & assign );
 
 };
 

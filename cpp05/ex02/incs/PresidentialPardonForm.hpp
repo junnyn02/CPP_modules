@@ -10,23 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include "AForm.hpp"
 
-class	ShrubberyCreationForm : public AForm
+class	PresidentialPardonForm : public AForm
 {	
 	public:
-		ShrubberyCreationForm( void );
-		ShrubberyCreationForm( std::string const &target );
-		ShrubberyCreationForm( ShrubberyCreationForm const & cpy );
-		virtual ~ShrubberyCreationForm( void );
+		PresidentialPardonForm( void );
+		PresidentialPardonForm( std::string const &target );
+		PresidentialPardonForm( PresidentialPardonForm const & cpy );
+		virtual ~PresidentialPardonForm( void );
 
 		virtual void do_exec(void) const;
-		// virtual void	execute( Bureaucrat const & executor ) const;
 
-		ShrubberyCreationForm &	operator=( ShrubberyCreationForm const & assign );
+		PresidentialPardonForm &	operator=( PresidentialPardonForm const & assign );
 
 };
 

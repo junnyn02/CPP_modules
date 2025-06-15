@@ -24,6 +24,8 @@ SRC			:=	main.cpp
 SRC			+=	Bureaucrat.cpp
 SRC			+=	AForm.cpp
 SRC			+=	ShrubberyCreationForm.cpp
+SRC			+=	PresidentialPardonForm.cpp
+SRC			+=	RobotomyRequestForm.cpp
 
 SRCS		=	${addprefix $(SRC_PATH), $(SRC)}
 

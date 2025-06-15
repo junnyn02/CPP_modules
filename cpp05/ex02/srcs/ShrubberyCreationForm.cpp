@@ -12,13 +12,13 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("Default", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("ShrubberyCreationForm", "NoTarget", 145, 137)
 {
 	if (MSG)
 		std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string const & name ) : AForm(name, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm( std::string const & target ) : AForm("ShrubberyCreationForm", target, 145, 137)
 {
 	if (MSG)
 		std::cout << "ShrubberyCreationForm name constructor called" << std::endl;
@@ -45,6 +45,30 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 		*this = assign;
 	return *this;
 }
+
+void	ShrubberyCreationForm::do_exec(void) const
+{
+	std::ofstream 	ofs;
+	std::string		file_name;
+
+	file_name = this->getTarget();
+	file_name.append("_shrubbery");
+	if (!ofs.is_open())
+	{
+		std::cerr << "Can't create outfile" << std::endl;
+		return ;
+	}
+	ofs << "draw tree";
+	ofs.close();
+}
+
+// void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+// {
+// 	if (this->getSigned() == false)
+// 		throw AForm::FormNotSigned();
+// 	if (executor.getGrade() > this->getGradeToExec())
+// 		throw AForm::GradeTooLowExecption();
+// }
 
 // std::ostream &	operator<<( std::ostream & o, ShrubberyCreationForm const &i )
 // {

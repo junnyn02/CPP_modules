@@ -12,14 +12,14 @@
 
 #include "AForm.hpp"
 
-AForm::AForm( void ) : _name("Default"), _signed(false), _grade_to_sign(150), _grade_to_exec(150)
+AForm::AForm( void ) : _name("Default"), _target("NoTarget"),_signed(false), _grade_to_sign(150), _grade_to_exec(150)
 {
 	if (MSG)
 		std::cout << "Form constructor called" << std::endl;
 }
 
-AForm::AForm( std::string const & name, unsigned int grade_to_sign, unsigned int grade_to_exec ) :
-			_name(name),  _signed(false), _grade_to_sign(grade_to_sign), _grade_to_exec(grade_to_exec)
+AForm::AForm( std::string const & name, std::string const & target,unsigned int grade_to_sign, unsigned int grade_to_exec ) :
+			_name(name), _target(target), _signed(false), _grade_to_sign(grade_to_sign), _grade_to_exec(grade_to_exec)
 {
 	if (MSG)
 		std::cout << "Form name constructor called" << std::endl;
@@ -69,6 +69,11 @@ std::string const&	AForm::getName( void ) const
 	return ( this->_name );
 }
 
+std::string const&	AForm::getTarget( void ) const
+{
+	return ( this->_target );
+}
+
 unsigned int const&	AForm::getGradeToSign( void ) const
 {
 	return ( this->_grade_to_sign );
@@ -94,12 +99,13 @@ void	AForm::beSigned( Bureaucrat const &bc )
 		this->_signed = true;
 }
 
-void	AForm::execute( Bureaucrat const & executor ) const;
+void	AForm::execute( Bureaucrat const & executor ) const
 {
 	if (this->getSigned() == false)
 		throw AForm::FormNotSigned();
 	if (executor.getGrade() > this->getGradeToExec())
-		throw AForm::GradeTooLowExecption();
+		throw AForm::GradeTooLowException();
+	do_exec();
 }
 
 const char *AForm::GradeTooHighException::what( void ) const throw()

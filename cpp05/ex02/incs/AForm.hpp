@@ -14,6 +14,7 @@
 # define AFORM_HPP
 
 # include "Bureaucrat.hpp"
+# include <fstream>
 
 class Bureaucrat;
 
@@ -21,27 +22,30 @@ class	AForm
 {
 	private:
 		std::string const	_name;
+		std::string const	_target;
 		bool				_signed;
 		unsigned int const	_grade_to_sign;
 		unsigned int const	_grade_to_exec;
 	
 	public:
 		AForm( void );
-		AForm( std::string const & name, unsigned int grade_to_sign, unsigned int _grade_to_exec );
-		AForm( std::string const & name );
+		AForm( std::string const & name, std::string const & target, unsigned int grade_to_sign, unsigned int _grade_to_exec );
+		// AForm( std::string const & name );
 		AForm( AForm const & cpy );
 		virtual ~AForm( void );
 
 		AForm &	operator=( AForm const & assign );
 
 		std::string	const	&getName( void ) const;
+		std::string	const	&getTarget( void ) const;
 		unsigned int const	&getGradeToSign( void ) const;
 		unsigned int const	&getGradeToExec( void ) const;
 		bool const			&getSigned( void ) const;
 
 		void	beSigned( Bureaucrat const & bc );
-		virtual void	execute( Bureaucrat const & executor ) const;
-		
+		void	execute( Bureaucrat const & executor ) const;
+		virtual void	do_exec(void) const = 0;
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
