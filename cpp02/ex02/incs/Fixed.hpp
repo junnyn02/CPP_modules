@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/20 12:14:51 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 11:29:44 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <cmath>
+
+# ifndef MSG
+#	define MSG 1
+# endif
 
 class	Fixed{
 	
@@ -43,7 +47,7 @@ class	Fixed{
 		float	operator*( Fixed nb ) const;
 		float	operator/( Fixed nb ) const;
 
-		Fixed	operator++();
+		Fixed &	operator++();
 		Fixed	operator++(int);
 
 		Fixed	operator--();

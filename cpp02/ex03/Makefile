@@ -6,7 +6,7 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/05/21 14:24:59 by junguyen         ###   ########.fr        #
+#    Updated: 2025/06/16 11:37:34 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,8 @@ $(NAME): $(OBJS)
 		$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(INCLUDES)
 		@echo $(GREEN)$(NAME) compiled!$(NO_STYLE)
 
+nomsg:	CFLAGS += -DMSG=0
+nomsg:	clean $(NAME)
 
 clean:	
 		@$(RM) $(OBJ_PATH)
@@ -66,4 +68,4 @@ fclean: clean
 re: fclean all
 		@echo $(PURPLE)$(NAME) reloaded!$(NO_STYLE)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re nomsg

@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:28:28 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 17:30:47 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 11:54:18 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,35 @@
 
 Point::Point( void ) : _x(0), _y(0)
 {
+	if (MSG)
+		std::cout << "Default no parameters constructor called" << std::endl;
 }
 
 Point::Point( const float x, const float y) : _x(x), _y(y)
 {
+	if (MSG)
+		std::cout << "Default constructor called" << std::endl;
 }
 
 Point::~Point( void )
 {
+	if (MSG)
+		std::cout << "Destructor called" << std::endl;
 }
 
 
 Point::Point( Point const & cpy ) : _x(cpy.getX()), _y(cpy.getY())
 {
+	if (MSG)
+		std::cout << "Copy constructor called" << std::endl;
 }
 
 Point & Point::operator=( Point const & assign )
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &assign){
-		((Fixed &)this->_x) = assign._x; //ca marche mais a ne pas faire
-		((Fixed &)this->_y) = assign._y; //ca marche mais a ne pas faire
-		// return (cpy); //do smth
-	}
+	if (MSG)
+		std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &assign)
+		return (*this);
 	return (*this);
 }
 

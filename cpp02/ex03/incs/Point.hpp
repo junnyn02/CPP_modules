@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:25:54 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 17:26:33 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 11:53:50 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ class Point
 private:
 	Fixed const _x;
 	Fixed const	_y;
+	
 public:
 	Point( void );
 	Point( const float x, const float y);
@@ -24,7 +25,6 @@ public:
 	~Point( void );
 
 	Point &operator=( Point const &assign );
-
 	Fixed	getX( void )const;
 	Fixed const	getY( void )const;
 };
