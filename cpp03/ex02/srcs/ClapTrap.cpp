@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/16 15:57:19 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/17 15:16:47 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 ClapTrap::ClapTrap(void) : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Claptrap Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Named constructor called" << std::endl;
+	std::cout << "Claptrap Named constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Claptrap Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & cpy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Claptrap Copy constructor called" << std::endl;
 	*this = cpy;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & assign)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Claptrap Copy assignment operator called" << std::endl;
 	if (this != &assign)
 	{
 		this->_name = assign.getName();
