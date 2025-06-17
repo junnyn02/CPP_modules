@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/16 16:07:04 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/17 15:00:32 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,17 @@ void	FragTrap::highFivesGuys(void) const
 	std::cout << "FragTrap " << this->_name << " : \"can i have a high five please ?\"" << std::endl;
 }
 
+void	FragTrap::setDefaultHP(void)
+{
+	this->_hitPoints = 100;
+}
+
+void	FragTrap::setDefaultEP(void)
+{
+	this->_energyPoints = 100;
+}
+
+void	FragTrap::setDefaultAD(void)
+{
+	this->_attackDamage = 30;
+}

@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/16 16:05:32 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/17 15:00:27 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,17 @@ void	ScavTrap::guardGate(void)
 	this->_guardGate =  true;
 }
 
+void	ScavTrap::setDefaultHP(void)
+{
+	this->_hitPoints = 100;
+}
+
+void	ScavTrap::setDefaultEP(void)
+{
+	this->_energyPoints = 50;
+}
+
+void	ScavTrap::setDefaultAD(void)
+{
+	this->_attackDamage = 20;
+}
