@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/22 13:52:05 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:53:34 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ class	ScavTrap : public ClapTrap
 		bool	_guardGate;
 
 	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( ScavTrap const & cpy );
-		~ScavTrap( void );
+		ScavTrap(void);
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const & cpy);
+		~ScavTrap(void);
 
-		ScavTrap &	operator=( ScavTrap const & assign );
+		ScavTrap &	operator=(ScavTrap const & assign);
 
 		void	attack(const std::string& target);
-		void	guardGate( void );
+		void	guardGate(void);
 };
 
 #endif

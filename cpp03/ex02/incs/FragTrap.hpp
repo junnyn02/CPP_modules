@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/22 14:53:31 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:56:46 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 class	FragTrap : public ClapTrap
 {
 	public:
-		FragTrap( void );
-		FragTrap( std::string name );
-		FragTrap( FragTrap const & cpy );
-		~FragTrap( void );
+		FragTrap(void);
+		FragTrap(std::string name);
+		FragTrap(FragTrap const & cpy);
+		~FragTrap(void);
 
-		FragTrap &	operator=( FragTrap const & assign );
+		FragTrap &	operator=(FragTrap const & assign);
 
-		void	highFivesGuys( void ) const;
+		void	highFivesGuys(void) const;
 };
 
 #endif

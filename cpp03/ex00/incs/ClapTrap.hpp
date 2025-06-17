@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 17:34:05 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:48:36 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <iostream>
 
-class	ClapTrap{
-	
+class	ClapTrap
+{
 	private:
 		std::string	_name;
 		int			_hitPoints;
@@ -24,23 +24,23 @@ class	ClapTrap{
 		int			_attackDamage;
 
 	public:
-		ClapTrap( void );
+		ClapTrap(void);
 		ClapTrap(std::string name);
-		ClapTrap( ClapTrap const & cpy );
-		~ClapTrap( void );
+		ClapTrap(ClapTrap const & cpy);
+		~ClapTrap(void);
 
-		ClapTrap &	operator=( ClapTrap const & assign );
+		ClapTrap &	operator=(ClapTrap const & assign);
 
-		std::string	getName( void ) const;
-		int			getHitPoints( void ) const;
-		int			getEnergyPoints( void ) const;
-		int			getAttackDamage( void ) const;
+		std::string	getName(void) const;
+		int			getHitPoints(void) const;
+		int			getEnergyPoints(void) const;
+		int			getAttackDamage(void) const;
 
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 };
 
-std::ostream &	operator<<( std::ostream & o, ClapTrap const &i );
+std::ostream &	operator<<(std::ostream & o, ClapTrap const &i);
 
 #endif
