@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/22 16:27:08 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:48:25 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 # include <iostream>
 
-class	Animal{
-	
+class	Animal
+{	
 	protected:
 		std::string	_type;
 
 	public:
-		Animal( void );
-		Animal( std::string type );
-		Animal( Animal const & cpy );
-		virtual ~Animal( void );
+		Animal(void);
+		Animal(std::string const & type);
+		Animal(Animal const & cpy);
+		virtual ~Animal(void);
 
-		Animal &	operator=( Animal const & assign );
+		Animal &	operator=(Animal const & assign);
 
-		std::string		getType( void ) const;
-		virtual void	makeSound( void ) const;
+		std::string		getType(void) const;
+		virtual void	makeSound(void) const;
 };
 
 #endif

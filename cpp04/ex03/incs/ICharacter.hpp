@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/04 14:30:30 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:38:43 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class AMateria;
 
-class	ICharacter{
-	
+class	ICharacter
+{
 	public:
-		virtual ~ICharacter( void ) {}
+		virtual ~ICharacter(void) {}
 		virtual std::string const	&getName() const = 0;
-		virtual void	equip( AMateria *m ) = 0;
-		virtual void	unequip( int idx ) = 0;
-		virtual void	use( int idx, ICharacter &target ) = 0;
+		virtual void	equip(AMateria *m) = 0;
+		virtual void	unequip(int idx) = 0;
+		virtual void	use(int idx, ICharacter &target) = 0;
 };
 
 #endif

@@ -6,29 +6,29 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/03 14:31:56 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/18 12:51:12 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice( void ) : AMateria("ice")
+Ice::Ice(void) : AMateria("ice")
 {
 	std::cout << "Ice constructor called" << std::endl;
 }
 
-Ice::~Ice( void )
+Ice::~Ice(void)
 {
 	std::cout << "Ice Destructor called" << std::endl;
 }
 
-Ice::Ice( Ice const & cpy )
+Ice::Ice(Ice const & cpy)
 {
 	std::cout << "Cure copy constructor called" << std::endl;
 	*this = cpy;
 }
 
-Ice & Ice::operator=( Ice const & assign )
+Ice & Ice::operator=(Ice const & assign)
 {
 	std::cout << "Cure copy assignment operator called" << std::endl;
 	if (this != &assign)
@@ -36,17 +36,12 @@ Ice & Ice::operator=( Ice const & assign )
 	return *this;
 }
 
-std::string const&	Ice::getType( void ) const
-{
-	return ( this->_type );
-}
-
-AMateria*	Ice::clone( void ) const
+AMateria*	Ice::clone(void) const
 {
 	return (new Ice(*this));
 }
 
-void	Ice::use( ICharacter &target )
+void	Ice::use(ICharacter &target)
 {
 	std::cout << "Ice : \"* shoots an ice bolt at " << target.getName();
 	std::cout << " *\"" << std::endl;

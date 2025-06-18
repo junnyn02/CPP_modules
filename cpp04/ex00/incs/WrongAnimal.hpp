@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/22 16:28:15 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:49:06 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 # include <iostream>
 
-class	WrongAnimal{
-	
+class	WrongAnimal
+{	
 	protected:
 		std::string	_type;
 
 	public:
-		WrongAnimal( void );
-		WrongAnimal( std::string type );
-		WrongAnimal( WrongAnimal const & cpy );
-		~WrongAnimal( void );
+		WrongAnimal(void);
+		WrongAnimal(std::string const & type);
+		WrongAnimal(WrongAnimal const & cpy);
+		~WrongAnimal(void);
 
-		WrongAnimal &	operator=( WrongAnimal const & assign );
+		WrongAnimal &	operator=(WrongAnimal const & assign);
 
-		std::string		getType( void ) const;
-		void	makeSound( void ) const;
+		std::string		getType(void) const;
+		void	makeSound(void) const;
 };
 
 #endif

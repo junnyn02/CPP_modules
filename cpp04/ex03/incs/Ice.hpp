@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/04 14:27:49 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/18 12:51:30 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,15 @@
 
 class	Ice : public AMateria
 {
-	
 	public:
-		Ice( void );
-		Ice( Ice const & cpy );
-		virtual ~Ice( void );
+		Ice(void);
+		Ice(Ice const & cpy);
+		virtual ~Ice(void);
 
-		Ice &	operator=( Ice const & assign );
-
-		std::string const		&getType( void ) const;
+		Ice &	operator=(Ice const & assign);
 
 		virtual AMateria*	clone(void) const;
-		virtual void	use( ICharacter &target );
+		virtual void	use(ICharacter &target);
 };
 
 #endif

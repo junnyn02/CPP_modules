@@ -6,31 +6,31 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/27 15:17:25 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/18 12:29:32 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog( void ) : AAnimal("Dog")
+Dog::Dog(void) : AAnimal("Dog")
 {
 	std::cout << "Dog Default constructor called" << std::endl;
 	_brain = new Brain();
 }
 
-Dog::~Dog( void )
+Dog::~Dog(void)
 {
 	delete _brain;
 	std::cout << "Dog Destructor called" << std::endl;
 }
 
-Dog::Dog( Dog const & cpy )
+Dog::Dog(Dog const & cpy)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
 	*this = cpy;
 }
 
-Dog & Dog::operator=( Dog const & assign )
+Dog & Dog::operator=(Dog const & assign)
 {
 	std::cout << "Dog Copy assignment operator called" << std::endl;
 	if (this != &assign)
@@ -41,17 +41,17 @@ Dog & Dog::operator=( Dog const & assign )
 	return *this;
 }
 
-void	Dog::makeSound( void ) const
+void	Dog::makeSound(void) const
 {
 	std::cout << "Wouf" << std::endl;
 }
 
-void	Dog::getIdea( int index ) const
+void	Dog::getIdea(int index) const
 {
 	return this->_brain->getIdea(index);
 }
 
-void	Dog::setIdea( int index, std::string idea )
+void	Dog::setIdea(int index, std::string idea)
 {
-	return this->_brain->setIdea( index, idea );
+	return this->_brain->setIdea(index, idea);
 }

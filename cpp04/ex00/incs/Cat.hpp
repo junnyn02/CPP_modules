@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/22 16:29:51 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/17 15:37:17 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class	Cat : public Animal
 {
 	public:
-		Cat( void );
-		Cat( Cat const & cpy );
-		virtual ~Cat( void );
+		Cat(void );
+		Cat(Cat const & cpy );
+		virtual ~Cat(void );
 
-		Cat &	operator=( Cat const & assign );
+		Cat &	operator=(Cat const & assign );
 
-		virtual void	makeSound( void ) const;
+		virtual void	makeSound(void ) const;
 };
 
 #endif

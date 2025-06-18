@@ -6,7 +6,7 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/06/03 12:45:44 by junguyen         ###   ########.fr        #
+#    Updated: 2025/06/18 17:51:03 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC			+=	Ice.cpp
 SRC			+=	Cure.cpp
 SRC			+=	Character.cpp
 SRC			+=	MateriaSource.cpp
+SRC			+=	Ground.cpp
 
 SRCS		=	${addprefix $(SRC_PATH), $(SRC)}
 

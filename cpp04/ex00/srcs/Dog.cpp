@@ -6,29 +6,29 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/22 16:30:18 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/17 15:58:03 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog( void ) : Animal("Dog")
+Dog::Dog(void) : Animal("Dog")
 {
 	std::cout << "Dog Default constructor called" << std::endl;
 }
 
-Dog::~Dog( void )
+Dog::~Dog(void)
 {
 	std::cout << "Dog Destructor called" << std::endl;
 }
 
-Dog::Dog( Dog const & cpy )
+Dog::Dog(Dog const & cpy)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
 	*this = cpy;
 }
 
-Dog & Dog::operator=( Dog const & assign )
+Dog & Dog::operator=(Dog const & assign)
 {
 	std::cout << "Dog Copy assignment operator called" << std::endl;
 	if (this != &assign)
@@ -36,7 +36,7 @@ Dog & Dog::operator=( Dog const & assign )
 	return *this;
 }
 
-void	Dog::makeSound( void ) const
+void	Dog::makeSound(void) const
 {
 	std::cout << "Wouf" << std::endl;
 }
