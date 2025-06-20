@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/18 14:37:32 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/20 13:29:17 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 MateriaSource::MateriaSource(void)
 {
-	std::cout << "MateriaSource constructor called" << std::endl;
+	if (MSG)
+		std::cout << "MateriaSource constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		_stock[i] = NULL;
 }
 
 MateriaSource::~MateriaSource(void)
 {
-	std::cout << "MateriaSource Destructor called" << std::endl;
+	if (MSG)
+		std::cout << "MateriaSource Destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_stock[i])
@@ -31,13 +33,15 @@ MateriaSource::~MateriaSource(void)
 
 MateriaSource::MateriaSource(MateriaSource const & cpy)
 {
-	std::cout << "MateriaSource copy constructor called" << std::endl;
+	if (MSG)
+		std::cout << "MateriaSource copy constructor called" << std::endl;
 	*this = cpy;
 }
 
 MateriaSource & MateriaSource::operator=(MateriaSource const & assign)
 {
-	std::cout << "MateriaSource copy assignment operator called" << std::endl;
+	if (MSG)
+		std::cout << "MateriaSource copy assignment operator called" << std::endl;
 	if (this != &assign)
 	{
 		for (int i = 0; i < 4; i++)
@@ -46,10 +50,8 @@ MateriaSource & MateriaSource::operator=(MateriaSource const & assign)
 				delete (this->_stock[i]);
 		}
 		for (int i = 0; i < 4; i++)
-			this->_stock[i] = assign._stock[i];
+			this->_stock[i] = assign._stock[i]->clone();
 	}
-	if (this != &assign)
-		return *this;
 	return *this;
 }
 
@@ -57,10 +59,14 @@ void	MateriaSource::learnMateria(AMateria *toLearn)
 {
 	int	idx = 0;
 
-	while(this->_stock[idx] != NULL)
+	while(idx < 4 && this->_stock[idx] != NULL)
 		idx++;
 	if (idx == 4)
+	{
+		delete toLearn;
 		return ((void)(std::cout << "Can't learn more Materia" << std::endl));
+	}
+	std::cout << "New Materia Learn" << std::endl;
 	_stock[idx] = toLearn;
 }
 
@@ -79,5 +85,6 @@ AMateria*	MateriaSource::createMateria(std::string const &type)
 		std::cout << "Unknown type" << std::endl;
 		return (0);
 	}
+	std::cout << "New Materia created" << std::endl;
 	return (this->_stock[idx]->clone());
 }

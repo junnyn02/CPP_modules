@@ -6,19 +6,19 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/05 15:18:13 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/20 13:42:25 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) : _name("Default"), _grade(150)
+Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(150)
 {
 	if (MSG)
 		std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat( std::string const & name, unsigned int grade ) : _name(name)
+Bureaucrat::Bureaucrat(std::string const & name, unsigned int grade) : _name(name)
 {
 	if (MSG)
 		std::cout << "Bureaucrat name constructor called" << std::endl;
@@ -33,24 +33,24 @@ Bureaucrat::Bureaucrat( std::string const & name, unsigned int grade ) : _name(n
 	catch (std::exception & e)
 	{
 		std::cerr << e.what() << " Default grade applied." << std::endl;
-		grade = 150;
+		_grade = 150;
 	}
 }
 
-Bureaucrat::~Bureaucrat( void )
+Bureaucrat::~Bureaucrat(void)
 {
 	if (MSG)
 		std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const & cpy )
+Bureaucrat::Bureaucrat(Bureaucrat const & cpy)
 {
 	if (MSG)
 		std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = cpy;
 }
 
-Bureaucrat & Bureaucrat::operator=( Bureaucrat const & assign )
+Bureaucrat & Bureaucrat::operator=(Bureaucrat const & assign)
 {
 	if (MSG)
 		std::cout << "Bureaucrat copy assignment operator called" << std::endl;
@@ -59,27 +59,27 @@ Bureaucrat & Bureaucrat::operator=( Bureaucrat const & assign )
 	return *this;
 }
 
-std::string const&	Bureaucrat::getName( void ) const
+std::string const&	Bureaucrat::getName(void) const
 {
-	return ( this->_name );
+	return (this->_name);
 }
 
-unsigned int const&	Bureaucrat::getGrade( void ) const
+unsigned int const&	Bureaucrat::getGrade(void) const
 {
-	return ( this->_grade );
+	return (this->_grade);
 }
 
-const char *Bureaucrat::GradeTooHighException::what( void ) const throw()
+const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return ("Grade's too high.");
 }
 
-const char *Bureaucrat::GradeTooLowException::what( void ) const throw()
+const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return ("Grade's too low.");
 }
 
-void	Bureaucrat::incrementGrade( void )
+void	Bureaucrat::incrementGrade(void)
 {
 	try
 	{
@@ -93,7 +93,7 @@ void	Bureaucrat::incrementGrade( void )
 	}
 }
 
-void	Bureaucrat::decrementGrade( void )
+void	Bureaucrat::decrementGrade(void)
 {
 	try
 	{
@@ -107,7 +107,7 @@ void	Bureaucrat::decrementGrade( void )
 	}
 }
 
-std::ostream &	operator<<( std::ostream & o, Bureaucrat const &i )
+std::ostream &	operator<<(std::ostream & o, Bureaucrat const &i)
 {
 	o << i.getName() << ", bureaucrat grade " << i.getGrade() << "." <<std::endl;
 	return (o);

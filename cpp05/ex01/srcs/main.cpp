@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:05:08 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/05 18:32:33 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:08:19 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main()
 		ptr = new Form("Contract", 1, 1);
 		Patrick.signForm(*ptr);
 		Boss.signForm(*ptr);
+		std::cout << *ptr;
 		Bureaucrat	Vice("Vice Pres", 2);
 		Vice.signForm(*ptr);
 		delete ptr;
@@ -43,11 +44,5 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	// Form a("Contract", 1, 1);
-	// Patrick.signForm(a);
-
-	// Boss.signForm(a);
-	// Bureaucrat	Vice("Vice Pres", 2);
-	// Vice.signForm(a);
 	return 0;
 }

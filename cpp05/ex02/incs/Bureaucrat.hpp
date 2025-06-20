@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/05 17:55:08 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:13:29 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ class	Bureaucrat
 		unsigned int		_grade;
 	
 	public:
-		Bureaucrat( void );
-		Bureaucrat( std::string const & name, unsigned int grade );
-		Bureaucrat( Bureaucrat const & cpy );
-		~Bureaucrat( void );
+		Bureaucrat(void);
+		Bureaucrat(std::string const & name, unsigned int grade);
+		Bureaucrat(Bureaucrat const & cpy);
+		~Bureaucrat(void);
 
-		Bureaucrat &	operator=( Bureaucrat const & assign );
+		Bureaucrat &	operator=(Bureaucrat const & assign);
 
-		std::string	const	&getName( void ) const;
-		unsigned int const	&getGrade( void ) const;
-		void				incrementGrade( void );
-		void				decrementGrade( void );
-		void				signForm( AForm & form );
+		std::string	const	&getName(void) const;
+		unsigned int const	&getGrade(void) const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
+		void				signForm(AForm & form);
 
 		void	executeForm(AForm const & form) const;
 		
@@ -57,6 +57,6 @@ class	Bureaucrat
 		};
 };
 
-std::ostream &	operator<<( std::ostream & o, Bureaucrat const &i );
+std::ostream &	operator<<(std::ostream & o, Bureaucrat const &i);
 
 #endif

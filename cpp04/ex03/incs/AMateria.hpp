@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/18 12:35:19 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/19 14:08:26 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+
+# ifndef MSG
+#	define MSG 1
+#endif
 
 class ICharacter;
 

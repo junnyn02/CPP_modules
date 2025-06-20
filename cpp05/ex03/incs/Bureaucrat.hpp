@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/20 13:50:39 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/20 16:07:07 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 # include <iostream>
 # include <stdexcept>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # ifndef MSG
 #	define MSG 1
 # endif
 
-class Form;
+class AForm;
 
 class	Bureaucrat
 {
@@ -41,7 +41,9 @@ class	Bureaucrat
 		unsigned int const	&getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
-		void				signForm(Form & form);
+		void				signForm(AForm & form);
+
+		void	executeForm(AForm const & form) const;
 		
 		class GradeTooHighException : public std::exception
 		{

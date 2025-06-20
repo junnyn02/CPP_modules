@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/18 17:49:35 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/19 14:52:51 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ class	Character : public ICharacter
 	private:
 		std::string	_name;
 		AMateria	*_inventory[4];
-		Ground		*_drop;
-		// AMateria	*_ground[100];
+		AMateria	*_drop[100];
 		
 		public:
 		Character(void);
-		Character(std::string const & name, Ground & drop);
+		Character(std::string const & name);
 		Character(Character const & cpy);
 		virtual ~Character(void);
 

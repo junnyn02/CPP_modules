@@ -6,11 +6,11 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/06/19 14:09:19 by junguyen         ###   ########.fr        #
+#    Updated: 2025/06/20 15:35:15 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Materia
+NAME		=	Intern
 
 CC			=	c++
 
@@ -21,12 +21,12 @@ SRC_PATH	=	srcs/
 OBJ_PATH	=	obj/
 
 SRC			:=	main.cpp
-SRC			+=	AMateria.cpp
-SRC			+=	Ice.cpp
-SRC			+=	Cure.cpp
-SRC			+=	Character.cpp
-SRC			+=	MateriaSource.cpp
-SRC			+=	Ground.cpp
+SRC			+=	Bureaucrat.cpp
+SRC			+=	AForm.cpp
+SRC			+=	ShrubberyCreationForm.cpp
+SRC			+=	PresidentialPardonForm.cpp
+SRC			+=	RobotomyRequestForm.cpp
+SRC			+=	Intern.cpp
 
 SRCS		=	${addprefix $(SRC_PATH), $(SRC)}
 
