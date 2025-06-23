@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/19 14:52:51 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/23 15:04:23 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
-# include "Ground.hpp"
-
-class	Ground;
 
 class	Character : public ICharacter
 {
