@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/05/22 16:30:07 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/23 11:38:01 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	WrongCat : public WrongAnimal
 	public:
 		WrongCat( void );
 		WrongCat( WrongCat const & cpy );
-		~WrongCat( void );
+		virtual ~WrongCat( void );
 
 		WrongCat &	operator=( WrongCat const & assign );
 

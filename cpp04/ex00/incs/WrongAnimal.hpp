@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/17 17:49:06 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/23 11:38:05 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	WrongAnimal
 		WrongAnimal(void);
 		WrongAnimal(std::string const & type);
 		WrongAnimal(WrongAnimal const & cpy);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
 		WrongAnimal &	operator=(WrongAnimal const & assign);
 
