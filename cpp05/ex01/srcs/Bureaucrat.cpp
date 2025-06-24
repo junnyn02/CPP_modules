@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/20 14:01:44 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:12:29 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ Bureaucrat::Bureaucrat(std::string const & name, unsigned int grade ) : _name(na
 			throw Bureaucrat::GradeTooLowException();
 		_grade = grade;
 	}
-	catch (std::exception & e)
+	catch (const Bureaucrat::GradeTooHighException & e)
+	{
+		std::cerr << e.what() << " Default grade applied." << std::endl;
+		_grade = 150;
+	}
+	catch (const Bureaucrat::GradeTooLowException & e)
 	{
 		std::cerr << e.what() << " Default grade applied." << std::endl;
 		_grade = 150;
@@ -96,14 +101,13 @@ void	Bureaucrat::incrementGrade(void)
 {
 	try
 	{
-		if (this->_grade - 1 < 1)
+		if (this->_grade == 1)
 			throw Bureaucrat::GradeTooHighException();
 		this->_grade--;
 	}
-	catch(const std::exception& e)
+	catch(const Bureaucrat::GradeTooHighException& e)
 	{
 		std::cerr << e.what() << " Can't increment grade." << std::endl;
-		return ;
 	}
 }
 
@@ -111,14 +115,13 @@ void	Bureaucrat::decrementGrade(void)
 {
 	try
 	{
-		if (this->_grade + 1 > 150)
+		if (this->_grade == 150)
 			throw Bureaucrat::GradeTooLowException();
 		this->_grade++;
 	}
-	catch(const std::exception& e)
+	catch(const Bureaucrat::GradeTooLowException& e)
 	{
 		std::cerr << e.what() << " Can't decrement grade." << std::endl;
-		return ;
 	}
 }
 

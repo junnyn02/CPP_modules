@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/20 14:31:46 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:26:51 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 {
 	if (MSG)
 		std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
-	if (this != &assign)
-		*this = assign;
+	(void)assign;
 	return *this;
 }
 

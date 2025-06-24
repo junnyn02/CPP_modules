@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/20 14:32:37 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:16:03 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
 {
 	if (MSG)
 		std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
-	if (this != &assign)
-		*this = assign;
+	(void)assign;
 	return *this;
 }
 

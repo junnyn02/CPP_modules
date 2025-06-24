@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:05:08 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/20 17:08:00 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:17:54 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int main()
 	std::cout << "---------------------------ShrubberyCreationForm---------------------------" << std::endl;
 	AForm *a = new ShrubberyCreationForm("target");
 	std::cout << *a;
+	Bureaucrat	Newbie("Newbie", 150);
+	std::cout << Newbie;
+	Newbie.signForm(*a);
+	Newbie.executeForm(*a);
 	Bureaucrat	Jacques("Jacques", 130);
 	std::cout << Jacques;
 	Jacques.signForm(*a);
@@ -53,27 +57,6 @@ int main()
 	delete a;
 	delete b;
 	delete c;
-	// Bureaucrat	Bob("Bob", 152);
-	// std::cout << Bob;
-
-	// Bureaucrat	Patrick("Patrick", 150);
-	// std::cout << Patrick;
-	// Patrick.decrementGrade();
-	// std::cout << Patrick;
-
-	// Bureaucrat	Boss("Boss", 2);
-	// std::cout << Boss;
-	// Boss.incrementGrade();
-	// std::cout << Boss;
-	// Boss.incrementGrade();
-	// std::cout << Boss;
-
-	// Form a("Contract", 1, 1);
-	// Patrick.signForm(a);
-
-	// Boss.signForm(a);
-	// Bureaucrat	Vice("Vice Pres", 2);
-	// Vice.signForm(a);
-
+	
 	return 0;
 }

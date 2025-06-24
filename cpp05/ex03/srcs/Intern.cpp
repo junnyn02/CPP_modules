@@ -45,25 +45,17 @@ AForm *	Intern::makeForm(std::string const & name, std::string const & target)
 	std::string const param[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	AForm *	(Intern::*fn_ptr[3])(std::string const & target) = {&Intern::returnShrubbery, &Intern::returnRobot, &Intern::returnPresident};
 	AForm	*form;
-	try
+	while (i < 4)
 	{
-		while (i < 4)
+		if (name == param[i])
 		{
-			if (name == param[i])
-			{
-				form = (this->*fn_ptr[i])(target);
-				break ;
-			}
-			i++;
+			form = (this->*fn_ptr[i])(target);
+			break ;
 		}
-		if (i == 4)
-			throw Intern::NameNotFound();
+		i++;
 	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return (NULL);
-	}
+	if (i == 4)
+		throw Intern::NameNotFound();
 	std::cout << "Intern creates " << "form" << std::endl;
 	return form;
 }

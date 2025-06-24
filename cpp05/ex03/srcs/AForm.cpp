@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:01 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/20 14:15:30 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:25:02 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,10 @@ AForm::AForm(std::string const & name, std::string const & target,unsigned int g
 {
 	if (MSG)
 		std::cout << "Form name constructor called" << std::endl;
-	try
-	{
-		if (_grade_to_sign < 1 || _grade_to_exec < 1)
-			throw AForm::GradeTooHighException();
-		if (_grade_to_sign > 150 || _grade_to_exec > 150)
-			throw AForm::GradeTooLowException();
-	}
-	catch (std::exception & e)
-	{
-		std::cerr << e.what() << " Default grade applied." << std::endl;
-	}
+	if (_grade_to_sign < 1 || _grade_to_exec < 1)
+		throw AForm::GradeTooHighException();
+	if (_grade_to_sign > 150 || _grade_to_exec > 150)
+		throw AForm::GradeTooLowException();
 }
 
 AForm::~AForm(void)
