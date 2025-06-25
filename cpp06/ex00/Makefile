@@ -6,11 +6,11 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/06/24 18:38:53 by junguyen         ###   ########.fr        #
+#    Updated: 2025/06/25 14:22:01 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ScalarConverter
+NAME		=	convert
 
 CC			=	c++
 
