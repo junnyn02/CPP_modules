@@ -6,7 +6,7 @@
 /*   By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 18:44:16 by junguyen          #+#    #+#             */
-/*   Updated: 2025/06/25 15:14:46 by junguyen         ###   ########.fr       */
+/*   Updated: 2025/06/27 15:54:06 by junguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,14 @@
 
 # include <iostream>
 # include <string>
-# include <stdexcept>
+// # include <stdexcept>
 # include <stdlib.h>
-# include <limits.h>
+# include <errno.h>
+# include <limits>
 
 # ifndef MSG
 #	define MSG 1
 # endif
-
-// #define __STDC_LIMIT_MACROS
-// #include <stdint.h>
-
 
 class	ScalarConverter
 {
@@ -37,8 +34,18 @@ class	ScalarConverter
 	
 	public:
 		static void convert(std::string const &);
-
-
 };
+
+void	print_special_msg(std::string const &to_convert);
+void	convert_double(std::string const & to_convert);
+void	convert_float(std::string const & to_convert);
+void	convert_int(std::string const & to_convert);
+void	convert_char(std::string const & to_convert);
+
+bool	is_special(std::string const &to_convert);
+bool	is_double(std::string const &to_convert);
+bool	is_float(std::string const &to_convert);
+bool	is_int(std::string const &to_convert);
+bool	is_char(std::string const &to_convert);
 
 #endif

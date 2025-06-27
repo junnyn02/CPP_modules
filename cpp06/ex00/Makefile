@@ -6,7 +6,7 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/06/25 14:22:01 by junguyen         ###   ########.fr        #
+#    Updated: 2025/06/27 15:54:17 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ OBJ_PATH	=	obj/
 
 SRC			:=	main.cpp
 SRC			+=	ScalarConverter.cpp
+SRC			+=	PrintMsg.cpp
+SRC			+=	FindType.cpp
 
 SRCS		=	${addprefix $(SRC_PATH), $(SRC)}
 
