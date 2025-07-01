@@ -1,4 +1,7 @@
-#include <iostream>
+#ifndef ITER_HPP
+# define ITER_HPP
+
+# include <iostream>
 
 template< typename T, typename F >
 void iter( T *a, size_t length, F f)
@@ -8,3 +11,5 @@ void iter( T *a, size_t length, F f)
 	for (size_t i = 0; i < length; i++)
 		f(a[i]);
 }
+
+#endif
