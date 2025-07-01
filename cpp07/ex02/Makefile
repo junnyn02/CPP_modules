@@ -6,7 +6,7 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/06/27 17:35:19 by junguyen         ###   ########.fr        #
+#    Updated: 2025/07/01 11:33:45 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRC_PATH	=	srcs/
 OBJ_PATH	=	obj/
 
 SRC			:=	main.cpp
-# SRC			+=	Array.tpp
 
 SRCS		=	${addprefix $(SRC_PATH), $(SRC)}
 

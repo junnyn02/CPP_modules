@@ -37,15 +37,15 @@ Array<T>    &Array<T>::operator=(Array const &assign)
 {
     if (this != &assign)
     {
-        if (_array)
-            delete [] _array;
+        // if (_array)
+        //     delete [] _array;
         _size = assign.size();
         if (_size == 0)
             _array = NULL;
         else
             _array = new T[_size];
-        for (unsigned int i = 0; i < size; i++)
-            this->_array[i] = assign->_array[i];
+        for (unsigned int i = 0; i < _size; i++)
+            this->_array[i] = assign._array[i];
     }
     return *this;
 }
