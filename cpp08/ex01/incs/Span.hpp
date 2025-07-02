@@ -19,7 +19,8 @@ class Span
 		Span(Span const &cpy);
 		Span	&operator=(Span const &assign);
 
-		void	addNumber(int x);
+		void	addNumber(int const &x);
+		void	addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite);
 		int 	shortestSpan(void) const;
 		int 	longestSpan(void) const;
 

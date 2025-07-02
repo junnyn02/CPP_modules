@@ -24,12 +24,24 @@ Span	&Span::operator=(Span const &assign)
 	return (*this);
 }
 
-void	Span::addNumber(int x)
+void	Span::addNumber(int const &x)
 {
 	if (this->_tab.size() == _size)
 		throw (Span::NoSpaceLeft());
 	_tab.push_back(x);
 }
+
+void	Span::addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite)
+{
+	while (it != ite)
+	{
+		if (this->_tab.size() == _size)
+			throw (Span::NoSpaceLeft());
+		_tab.push_back(*it);
+		it++;
+	}
+}
+
 
 int Span::shortestSpan(void) const
 {

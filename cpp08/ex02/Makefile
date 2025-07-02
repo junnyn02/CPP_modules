@@ -6,11 +6,11 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/07/02 14:34:13 by junguyen         ###   ########.fr        #
+#    Updated: 2025/07/02 14:36:20 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Span
+NAME		=	MutantStack
 
 CC			=	c++
 
@@ -21,7 +21,6 @@ SRC_PATH	=	srcs/
 OBJ_PATH	=	obj/
 
 SRC			:=	main.cpp
-SRC			+=	Span.cpp
 
 SRCS		=	${addprefix $(SRC_PATH), $(SRC)}
 
