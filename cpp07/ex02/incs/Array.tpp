@@ -37,8 +37,6 @@ Array<T>    &Array<T>::operator=(Array const &assign)
 {
     if (this != &assign)
     {
-        // if (_array)
-        //     delete [] _array;
         _size = assign.size();
         if (_size == 0)
             _array = NULL;

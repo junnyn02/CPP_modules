@@ -1,77 +1,60 @@
-#include "Span.hpp"
+#include "MutantStack.hpp"
+#include <list>
 
 int main( void )
 {
 	{
-		std::cout << "---------------Size 0 test---------------" << std::endl;
-		Span sp(0);
-		try
+		MutantStack<int> mstack;
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << "top: " << mstack.top() << std::endl;
+		mstack.pop();
+		std::cout << "size: " << mstack.size() << std::endl;
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		//[...]
+		mstack.push(0);
+		MutantStack<int>::iterator it = mstack.begin();
+		std::cout << "mstack.begin() nb: " << *it << std::endl;
+		MutantStack<int>::iterator ite = mstack.end();
+		++it;
+		std::cout << "pre increment nb: " << *it << std::endl;
+		--it;
+		while (it != ite)
 		{
-			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << "nb: " << *it << std::endl;
+			++it;
 		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		
+		std::stack<int> s(mstack);
+		// MutantStack<int>::const_iterator cit = mstack.cbegin();
+		// *cit = 7;
 	}
 	{
-		std::cout << "-------------Size int 5 test-------------" << std::endl;
-		Span sp = Span(5);
-		sp.addNumber(6);
-		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
-		std::cout << "-----------Trying add 1 more nb----------" << std::endl;
-		try
+		std::cout << "---------------List Test---------------" << std::endl;
+		std::list<int> mstack;
+		mstack.push_back(5);
+		mstack.push_back(17);
+		std::cout << "top: " << mstack.back() << std::endl;
+		mstack.pop_back();
+		std::cout << "size: " << mstack.size() << std::endl;
+		mstack.push_back(3);
+		mstack.push_back(5);
+		mstack.push_back(737);
+		//[...]
+		mstack.push_back(0);
+		std::list<int>::iterator it = mstack.begin();
+		std::cout << "mstack.begin() nb: " << *it << std::endl;
+		std::list<int>::iterator ite = mstack.end();
+		++it;
+		std::cout << "pre increment nb: " << *it << std::endl;
+		--it;
+		while (it != ite)
 		{
-			sp.addNumber(0);
+			std::cout << "nb: " << *it << std::endl;
+			++it;
 		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		std::cout << "shortest Span: " << sp.shortestSpan() << std::endl;
-		std::cout << "longest Span: " << sp.longestSpan() << std::endl;
+		// std::stack<int> s(mstack);
+		return 0;
 	}
-	{
-		std::cout << "------Size int 1000 w/ range it(1000) test-----" << std::endl;
-		Span sp = Span(1000);
-		std::vector<int> v(1000);
-		std::vector<int>::iterator it = v.begin();
-		srand(time(0));
-		for (std::vector<int>::iterator ite = v.end(); it != ite; it++)
-			*it = rand() % 10000000;
-		try
-		{
-			sp.addNumber(v.begin(), v.end());
-			std::cout << "shortest Span: " << sp.shortestSpan() << std::endl;
-			std::cout << "longest Span: " << sp.longestSpan() << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	{
-		std::cout << "---Size int 100 w/ range it (1000) test--" << std::endl;
-		Span sp = Span(100);
-		std::vector<int> v(1000);
-		std::vector<int>::iterator it = v.begin();
-		srand(time(0));
-		for (std::vector<int>::iterator ite = v.end(); it != ite; it++)
-			*it = rand() % 10000000;
-		try
-		{
-			sp.addNumber(v.begin(), v.end());
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		std::cout << "shortest Span: " << sp.shortestSpan() << std::endl;
-		std::cout << "longest Span: " << sp.longestSpan() << std::endl;
-	}
-	return 0;
 }
