@@ -34,7 +34,7 @@ void	convert_double(std::string const & to_convert)
 		std::cout << "Error: Overflow" << std::endl;
 		return ;
 	}
-	if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
+	if (d > std::numeric_limits<char>::max() || d < std::numeric_limits<char>::min())
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
@@ -52,8 +52,13 @@ void	convert_double(std::string const & to_convert)
 		int i = static_cast<int>(d);
 		std::cout << "int: " << i << std::endl;
 	}
-	float f = static_cast<float>(d);
-	std::cout << "float: " << f << "f" << std::endl;
+	if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::min())
+	std::cout << "float: impossible" << std::endl;
+	else
+	{
+		float f = static_cast<float>(d);
+		std::cout << "float: " << f << std::endl;
+	}
 	std::cout << "double: " << d << std::endl;
 }
 
@@ -70,7 +75,7 @@ void	convert_float(std::string const & to_convert)
 		std::cout << "Error: Overflow" << std::endl;
 		return ;
 	}
-		if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
+	if (f > std::numeric_limits<char>::max() || f < std::numeric_limits<char>::min())
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
@@ -107,11 +112,11 @@ void	convert_int(std::string const & to_convert)
 		return ;
 	}
 	int i = static_cast<int>(l);
-	char c = static_cast<char>(i);
-	if (errno == ERANGE && (c > std::numeric_limits<int>::max() || c < std::numeric_limits<int>::min()))
+	if (i > std::numeric_limits<char>::max() || i < std::numeric_limits<char>::min())
 		std::cout << "char: impossible" << std::endl;
 	else
 	{
+		char c = static_cast<char>(i);
 		std::cout << "char: ";
 		if (!isprint(c))
 			std::cout << "Non displayable" << std::endl;

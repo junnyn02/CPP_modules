@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap(void) : ClapTrap()
 	FragTrap::setDefaultAD();
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), FragTrap(name), _name(name + "_clap_name")
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name)
 {
 	std::cout << "DiamondTrap Named constructor called" << std::endl;
 	FragTrap::setDefaultHP();
@@ -61,6 +61,6 @@ void	DiamondTrap::attack(const std::string& target)
 
 void	DiamondTrap::whoAmI(void) const
 {
-	std::cout << "I'm " << ClapTrap::_name << " also known as "<< this->_name << std::endl;
+	std::cout << "I'm " << this->_name << " also known as "<< ClapTrap::_name  << std::endl;
 }
 
