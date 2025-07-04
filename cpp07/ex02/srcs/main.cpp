@@ -1,7 +1,62 @@
 #include "Array.hpp"
+#include <stdlib.h>
+
+#define MAX_VAL 750
 
 int main( void )
 {
+	{
+		std::cout << "a" << std::endl;
+		Array<int> numbers(MAX_VAL);
+		std::cout << "b" << std::endl;
+		int* mirror = new int[MAX_VAL];
+		std::cout << "c" << std::endl;
+		srand(time(NULL));
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			const int value = rand();
+			numbers[i] = value;
+			mirror[i] = value;
+		}
+		std::cout << "d" << std::endl;
+		//SCOPE
+		{
+			Array<int> tmp = numbers;
+			Array<int> test(tmp);
+		}
+
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			if (mirror[i] != numbers[i])
+			{
+				std::cerr << "didn't save the same value!!" << std::endl;
+				return 1;
+			}
+		}
+		try
+		{
+			numbers[-2] = 0;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			numbers[MAX_VAL] = 0;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		for (int i = 0; i < MAX_VAL; i++)
+		{
+			numbers[i] = rand();
+		}
+		delete [] mirror;//
+	}
+	std::cout << "------------------------My TEST-----------------------" << std::endl;
 	Array<int> a(7);
 	Array<char>	b;
 
@@ -13,9 +68,9 @@ int main( void )
 		std::cout << "try access int(a)[7] : ";
 		std::cout << a[7] << std::endl;
 	}
-	catch(const char* e)
+	catch(const std::exception& e)
 	{
-		std::cerr << "Error: " << e << std::endl;
+		std::cerr << "Error: " << e.what() << std::endl;
 	}
 	std::cout << "fill int(a) array : ";
 	for (int i = 0; i < 7; i++)
@@ -28,9 +83,9 @@ int main( void )
 		{
 			std::cout << a[i] << " ";
 		}
-		catch(const char* e)
+		catch(const std::exception& e)
 		{
-			std::cerr << "Error: " << e << std::endl;
+			std::cerr << "Error: " << e.what() << std::endl;
 		}
 	}
 	std::cout << std::endl << "-----------------------CPY TEST-----------------------" << std::endl;
@@ -43,9 +98,9 @@ int main( void )
 		{
 			std::cout << cpy[i] << " ";
 		}
-		catch(const char* e)
+		catch(const std::exception& e)
 		{
-			std::cerr << "Error: " << e << std::endl;
+			std::cerr << "Error: " << e.what() << std::endl;
 		}
 	}
 	std::cout << std::endl << "Modify int(a): ";
@@ -59,9 +114,9 @@ int main( void )
 		{
 			std::cout << a[i] << " ";
 		}
-		catch(const char* e)
+		catch(const std::exception& e)
 		{
-			std::cerr << "Error: " << e << std::endl;
+			std::cerr << "Error: " << e.what() << std::endl;
 		}
 	}
 	std::cout << std::endl << "what's inside int(cpy) mustn't change: ";
@@ -71,9 +126,9 @@ int main( void )
 		{
 			std::cout << cpy[i] << " ";
 		}
-		catch(const char* e)
+		catch(const std::exception& e)
 		{
-			std::cerr << "Error: " << e << std::endl;
+			std::cerr << "Error: " << e.what() << std::endl;
 		}
 	}
 	std::cout << std::endl;

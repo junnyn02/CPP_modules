@@ -1,7 +1,5 @@
 #include "Array.hpp"
 
-// template class Array<typename T>
-
 template<typename T>
 Array<T>::Array(void)
 {
@@ -52,7 +50,7 @@ template<typename T>
 T   &Array<T>::operator[](unsigned int const &index)
 {
     if (index >= _size)
-        throw ("Index is out of bounds");
+        throw (std::out_of_range("Index is out of range"));
     return (this->_array[index]);
 }
 
