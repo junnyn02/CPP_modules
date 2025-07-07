@@ -6,11 +6,8 @@
 int main( void )
 {
 	{
-		std::cout << "a" << std::endl;
 		Array<int> numbers(MAX_VAL);
-		std::cout << "b" << std::endl;
 		int* mirror = new int[MAX_VAL];
-		std::cout << "c" << std::endl;
 		srand(time(NULL));
 		for (int i = 0; i < MAX_VAL; i++)
 		{
@@ -18,7 +15,6 @@ int main( void )
 			numbers[i] = value;
 			mirror[i] = value;
 		}
-		std::cout << "d" << std::endl;
 		//SCOPE
 		{
 			Array<int> tmp = numbers;
@@ -62,7 +58,15 @@ int main( void )
 
 	std::cout << "int(a) created with n size. size is: " << a.size() << std::endl;
 	std::cout << "char(b) created with no parameters. size is: " << b.size() << std::endl;
-
+	try
+	{
+		std::cout << "try access char(b)[0] : ";
+		std::cout << b[0] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
 	try
 	{
 		std::cout << "try access int(a)[7] : ";

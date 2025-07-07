@@ -23,6 +23,7 @@ void	print_char(char const &a)
 int main( void )
 {
 	{
+		std::cout << "---------------------------Int Test---------------------------" << std::endl;
 		int a[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 		::iter(a, 10, print);
 		std::cout << std::endl;
@@ -31,12 +32,19 @@ int main( void )
 		std::cout << std::endl;
 	}
 	{
+		std::cout << std::endl << "---------------------------Char Test--------------------------" << std::endl;
 		char b[10] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'};
 		::iter(b, 10, print_char);
 		::iter(b, 10, to_upper);
 		std::cout << std::endl;
 		::iter(b, 10, print_char);
 		std::cout << std::endl;
+	}
+	{
+		std::cout << std::endl << "------------------------Const Char Test-----------------------" << std::endl;
+		const char b[10] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'};
+		::iter(b, 10, print_char);
+		// ::iter(b, 10, to_upper);
 	}
 	return 0;
 }
