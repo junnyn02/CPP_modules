@@ -20,7 +20,10 @@ Span::Span(Span const &cpy)
 Span	&Span::operator=(Span const &assign)
 {
 	if (this != &assign)
+	{
 		this->_size = assign._size;
+		this->_tab = assign._tab;
+	}
 	return (*this);
 }
 

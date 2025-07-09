@@ -6,15 +6,15 @@
 #    By: junguyen <junguyen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 10:37:37 by junguyen          #+#    #+#              #
-#    Updated: 2025/07/02 14:36:20 by junguyen         ###   ########.fr        #
+#    Updated: 2025/07/09 15:02:57 by junguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	btc
 
-CC			=	c++
+CXX			=	c++
 
-CFLAGS		=	-Wall -Werror -Wextra -g -std=c++98
+CXXFLAGS	=	-Wall -Werror -Wextra -g -std=c++98
 
 SRC_PATH	=	srcs/
 
@@ -46,13 +46,13 @@ all:		$(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 			@mkdir -p $(dir $@)
-			$(CC) $(CFLAGS) $(INCLUDES) -c  $< -o $@
+			$(CXX) $(CXXFLAGS) $(INCLUDES) -c  $< -o $@
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(INCLUDES)
+		$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME) $(INCLUDES)
 		@echo $(GREEN)$(NAME) compiled!$(NO_STYLE)
 
-nomsg:	CFLAGS += -DMSG=0
+nomsg:	CXXFLAGS += -DMSG=0
 nomsg:	clean $(NAME)
 
 clean:	

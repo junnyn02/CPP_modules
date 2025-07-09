@@ -10,7 +10,8 @@ int main(int ac, char **av)
 	try
 	{
 		BitcoinExchange btc(av[1], "data.csv");
-		btc.checkDB();
+		btc.fillDB();
+		btc.checkInput();
 	}
 	catch(const std::exception& e)
 	{

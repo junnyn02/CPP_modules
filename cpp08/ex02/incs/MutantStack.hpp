@@ -15,10 +15,7 @@ class MutantStack : public std::stack<T>
 		~MutantStack(void);
 		MutantStack(MutantStack const &cpy);
 		MutantStack	&operator=(MutantStack const &assign);
-
-		// typedef creates an alias for the existent type
-		// and typename tells the compiler that std::vector<T>::size_type
-		// is a type and not a member.
+		
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 
