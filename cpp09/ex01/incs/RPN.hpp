@@ -6,6 +6,7 @@
 # include <stack>
 # include <stdexcept>
 # include <limits>
+# include <cerrno>
 
 class RPN
 {
@@ -22,8 +23,14 @@ class RPN
 		RPN(std::string const &);
 		~RPN(void);
 		void	parser(void);
-		bool	isop(char const &) const;
+		void	calcul(char const &);
+		void	pushNumber(std::string::iterator &);
 
+		bool	isop(std::string::iterator &) const;
+		bool	isnumber(std::string::iterator &) const;
+		bool		add(int const &, int const &);
+		bool		substract(int const &, int const &);
+		bool		multiply(int const &, int const &);
 };
 
 # endif
