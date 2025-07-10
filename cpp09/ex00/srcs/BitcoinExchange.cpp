@@ -44,7 +44,22 @@ void    BitcoinExchange::fillDB(void)
     {
         std::size_t   pos = tmp.find(",");
         if (tmp.substr(0, pos) != "date")
-            _data.insert(std::pair<std::string, float>(tmp.substr(0, pos), strtof(tmp.substr(pos + 1).c_str(), NULL)));
+        {
+            try
+            {
+                checkDate(tmp.substr(0, pos));
+                float f = strtof(tmp.substr(pos + 1).c_str(), NULL);
+                if (f < 0)
+                    throw(std::runtime_error("Error: not a positive number"));
+                if (errno == ERANGE && f > std::numeric_limits<float>::max())
+                    throw(std::runtime_error("Error: too large a number"));
+                _data.insert(std::pair<std::string, float>(tmp.substr(0, pos), f));
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << "[DATA]" << e.what() << std::endl;
+            }
+        }
     }
     _csv.close();
 }
@@ -127,6 +142,8 @@ void    BitcoinExchange::checkValue(std::string const &value) const
         long l = strtol(value.c_str(), NULL, 10);
         if (l < 0)
             throw(std::runtime_error("Error: not a positive number"));
+        if (errno == ERANGE && l > std::numeric_limits<float>::max())
+            throw(std::runtime_error("Error: too large a number"));
         if (l > 1000)
             throw(std::runtime_error("Error: too large a number"));
     }
@@ -163,21 +180,14 @@ std::map<std::string, float>::iterator	BitcoinExchange::findYear(void)
     while (closest != _data.end() && diff(closest->first, 0) > 0)
         closest++;
     if (closest != _data.end() && diff(closest->first, 0) == 0)
-    {
-        std::cout << " [GOTOFINDMONTH] ";
         closest = findMonth(closest);
-    }
     else if (closest != _data.begin() && (closest == _data.end() || diff(closest->first, 0) < 0))
-        {
             closest--;
-            std::cout << "[CLOSEST] " << closest->first << " ";
-        }
     return closest;
 }
 
 std::map<std::string, float>::iterator	BitcoinExchange::findMonth(std::map<std::string, float>::iterator &closest)
 {
-    // std::map<std::string, float>::iterator new_closest = closest;
     while (closest != _data.end() && diff(closest->first, 5) > 0)
         closest++;
     if (closest != _data.end() && diff(closest->first, 5) == 0)
@@ -189,7 +199,6 @@ std::map<std::string, float>::iterator	BitcoinExchange::findMonth(std::map<std::
 
 std::map<std::string, float>::iterator	BitcoinExchange::findDay(std::map<std::string, float>::iterator closest)
 {
-    // std::map<std::string, float>::iterator new_closest = closest;
     while (closest != _data.end() && diff(closest->first, 8) > 0)
         closest++;
     if (closest == _data.end() || diff(closest->first, 8) < 0)
