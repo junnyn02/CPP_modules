@@ -23,6 +23,10 @@ class PmergeMe
 		~PmergeMe(void);
 		
 		void	sort(std::vector<int> &);
+		void	insert();
+		void	binarySearch();
+
+		int		jacobSthal(int n) const;
 
 		bool	onlyDigit(const char *) const;
 		bool	isSort(void);

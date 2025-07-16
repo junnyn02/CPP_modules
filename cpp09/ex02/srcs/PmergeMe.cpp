@@ -40,6 +40,47 @@ PmergeMe &PmergeMe::operator=(PmergeMe const &assign)
     return *this;
 }
 
+int PmergeMe::jacobSthal(int n) const
+{
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    return(jacobSthal(n - 1) + 2 * jacobSthal(n - 2));
+}
+
+void    PmergeMe::binarySearch(std::vector<int> S, int n, int maxPos)
+{
+    int left = 0;
+    
+    while(left <= maxPos)
+    {
+
+    }
+}
+
+/* int binarySearchInSubsequence(const std::vector<int>& S, int element, int maxPos)
+{
+    int left = 0;
+    int right = std::min(maxPos, (int)S.size() - 1);
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (S[mid] < element) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return left; // Position d'insertion
+} */
+
+void    PmergeMe::insert()
+{
+
+}
+
 void    PmergeMe::sort(std::vector<int> &array)
 {
     int n = array.size();
@@ -66,19 +107,20 @@ void    PmergeMe::sort(std::vector<int> &array)
     std::vector<int> smaller_elts;
     for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it < pairs.end(); ++it)
     {
-            if (it->second == S[0])
-            {
-                S.insert(S.begin(), it->first);
-                pairs.erase(it);
-                break;
-            }
+        if (it->second == S[0])
+        {
+            S.insert(S.begin(), it->first);
+            pairs.erase(it);
+            break;
+        }
     }
     for (size_t i = 0; i < pairs.size(); ++i)
         smaller_elts.push_back(pairs[i].first);
-    for (size_t i = 0; i < smaller_elts.size(); ++i)
-        S.push_back(smaller_elts[i]);
-    if (unpaired != -1)
-        S.push_back(unpaired);
+    insert();
+    // for (size_t i = 0; i < smaller_elts.size(); ++i)
+    //     S.push_back(smaller_elts[i]);
+    // if (unpaired != -1)
+    //     S.push_back(unpaired);
     _vector = S;
 }
 
