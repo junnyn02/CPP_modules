@@ -24,17 +24,17 @@ class PmergeMe
 
 		//vector algo
 		std::vector<int>	sort(std::vector<int> &);
-    	std::vector<int> 	generateJacobsthal(int maxIndex) const;
-    	std::vector<int> 	generateInsertionOrder(int numElements) const;
-    	void 				insert(std::vector<std::pair<int, int> > const &pairs, std::vector<int> const &S, std::vector<int> &result) const;
-		int 				binarySearch(std::vector<int> const &S, int n, int maxPos) const;
+    	std::vector<int> 	generateJacobsthal(int) const;
+    	std::vector<int> 	generateInsertionOrder(int) const;
+    	void 				insert(std::vector<std::pair<int, int> > const &, std::vector<int> &) const;
+		int 				binarySearch(std::vector<int> const &, int, int) const;
 
 		//list algo
 		std::list<int>	sort(std::list<int> &);
-		void 			insert(std::list<std::pair<int, int> > &pairs, std::list<int> const &S, std::list<int> &result) const;
-    	std::list<int> 	generateJacobsthalList(int maxIndex) const;
-    	std::list<int> 	generateInsertionOrderList(int numElements) const;
-		int				binarySearch(std::list<int> const &S, int n, int maxPos) const;		
+		void			insert(std::list<std::pair<int, int> > const &, std::list<int> &) const;
+    	std::list<int> 	generateJacobsthalList(int) const;
+    	std::list<int> 	generateInsertionOrderList(int) const;
+		int				binarySearch(std::list<int> const &, int , int) const;		
 		
 	public:
 		PmergeMe(char **, int &);
