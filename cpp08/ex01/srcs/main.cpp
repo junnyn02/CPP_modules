@@ -1,9 +1,15 @@
 #include "Span.hpp"
 
+void printTestHeader(const std::string& title, const std::string &color)
+{
+    std::string box = "[ TEST: " + title + " ]";
+    std::cout << color << box << COLOR_RESET << std::endl;
+}
+
 int main( void )
 {
 	{
-		std::cout << "------------------Size 0 test------------------" << std::endl;
+		printTestHeader("SIZE 0", COLOR_GREEN);
 		Span sp(0);
 		try
 		{
@@ -15,14 +21,15 @@ int main( void )
 		}
 	}
 	{
-		std::cout << std::endl << "----------------Size int 5 test----------------" << std::endl;
+		std::cout << std::endl;
+		printTestHeader("SIZE INT 5", COLOR_GREEN);
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		std::cout << "--------------Trying add 1 more nb-------------" << std::endl;
+		printTestHeader("Trying add 1 nb", COLOR_CYAN);
 		try
 		{
 			sp.addNumber(0);
@@ -35,7 +42,8 @@ int main( void )
 		std::cout << "longest Span: " << sp.longestSpan() << std::endl;
 	}
 	{
-		std::cout << std::endl << "------Size int 1000 w/ range it(1000) test-----" << std::endl;
+		std::cout << std::endl;
+		printTestHeader("SIZE INT 1000 w/ range it(1000)", COLOR_GREEN);
 		Span sp = Span(1000);
 		std::vector<int> v(1000);
 		std::vector<int>::iterator it = v.begin();
@@ -54,7 +62,8 @@ int main( void )
 		}
 	}
 	{
-		std::cout << std::endl << "------Size int 100 w/ range it (1000) test-----" << std::endl;
+		std::cout << std::endl;
+		printTestHeader("SIZE INT 100 w/ range it(1000)", COLOR_GREEN);
 		Span sp = Span(100);
 		std::vector<int> v(1000);
 		std::vector<int>::iterator it = v.begin();

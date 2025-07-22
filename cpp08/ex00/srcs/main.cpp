@@ -2,10 +2,16 @@
 #include <vector>
 #include <list>
 
+void printTestHeader(const std::string& title)
+{
+    std::string box = "[ TEST: " + title + " ]";
+    std::cout << COLOR_GREEN << box << COLOR_RESET << std::endl;
+}
+
 int main( void )
 {
 	{
-		std::cout << "------------------Vector test------------------" << std::endl;
+		printTestHeader("VECTOR");
 		std::vector<int> a;
 		a.push_back(2);
 		a.push_back(0);
@@ -31,7 +37,8 @@ int main( void )
 		}
 	}
 	{
-		std::cout << "------------------List test------------------" << std::endl;
+		std::cout << std::endl;
+		printTestHeader("LIST");
 		std::list<int> b;
 		b.push_back(2);
 		b.push_back(0);

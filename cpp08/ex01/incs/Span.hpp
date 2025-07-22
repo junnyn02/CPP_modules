@@ -6,6 +6,11 @@
 # include <vector>
 # include <stdexcept>
 
+# define COLOR_RESET   "\033[0m"
+# define COLOR_GREEN   "\033[1;32m"
+# define COLOR_YELLOW  "\033[1;33m"
+# define COLOR_CYAN    "\033[1;36m"
+
 class Span
 {
 	private:

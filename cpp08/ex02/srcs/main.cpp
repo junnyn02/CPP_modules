@@ -1,9 +1,16 @@
 #include "MutantStack.hpp"
 #include <list>
 
+void printTestHeader(const std::string& title, const std::string &color)
+{
+    std::string box = "[ TEST: " + title + " ]";
+    std::cout << color << box << COLOR_RESET << std::endl;
+}
+
 int main( void )
 {
 	{
+		printTestHeader("MSTACK ITERATOR", COLOR_GREEN);
 		MutantStack<int> mstack;
 		mstack.push(5);
 		mstack.push(17);
@@ -29,9 +36,17 @@ int main( void )
 		std::stack<int> s(mstack);
 		// MutantStack<int>::const_iterator cit = mstack.cbegin();
 		// *cit = 7;
+		printTestHeader("MSTACK REVERSE", COLOR_CYAN);
+		MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+		while (rit != mstack.rend())
+		{
+			std::cout << "nb: " << *rit << std::endl;
+			++rit;
+		}
 	}
 	{
-		std::cout << "---------------List Test---------------" << std::endl;
+		std::cout << std::endl;
+		printTestHeader("LIST", COLOR_GREEN);
 		std::list<int> mstack;
 		mstack.push_back(5);
 		mstack.push_back(17);
