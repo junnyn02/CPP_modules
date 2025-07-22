@@ -36,13 +36,11 @@ PmergeMe::PmergeMe(char **av, int &ac)
     double  timeV = static_cast<double>(endV - startV) / CLOCKS_PER_SEC;
     double  timeL = static_cast<double>(endL - startL) / CLOCKS_PER_SEC;
     std::cout << "After:\t";
-    // for (size_t i = 0; i < _vector.size(); i++)
-    //     std::cout << _vector[i] << " ";
     for (std::list<int>::iterator it = _list.begin(); it != _list.end(); ++it)
         std::cout << *it << " ";
     std::cout << std::endl;
     std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector :" << timeV << " us" << std::endl;
-    std::cout << "Time to process a range of " << _list.size() << " elements with std::vector :" << timeL << " us" << std::endl;
+    std::cout << "Time to process a range of " << _list.size() << " elements with std::list :" << timeL << " us" << std::endl;
     if (!checkSort() || size != _vector.size() || sizeL != _list.size())
         throw(std::runtime_error("Error: not sorted"));
 }
@@ -64,13 +62,13 @@ PmergeMe &PmergeMe::operator=(PmergeMe const &assign)
 
 bool    PmergeMe::checkSort(void)
 {
-    // for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end() - 1; it++)
-    // {
-    //     int n = *it;
-    //     for (std::vector<int>::iterator it2 = it + 1; it2 != _vector.end(); it2++)
-    //         if (n == *it2)
-    //             return false;
-    // }
+    for (std::vector<int>::iterator it = _vector.begin(); it != _vector.end() - 1; it++)
+    {
+        int n = *it;
+        for (std::vector<int>::iterator it2 = it + 1; it2 != _vector.end(); it2++)
+            if (n == *it2)
+                return false;
+    }
     for (std::list<int>::iterator it = _list.begin(); it != _list.end(); it++)
     {
         int n = *it;
@@ -286,17 +284,6 @@ void PmergeMe::insert(std::list<std::pair<int, int> > const &pairs, std::list<in
 {
     std::list<int> insertionOrder = generateInsertionOrderList(S.size());
     std::list<int> tmp = S;
-    for (std::list<std::pair<int, int> >::const_iterator it = pairs.begin(); it != pairs.end(); ++it)
-        std::cout << "[" << it->first << ", " << it->second << "], ";
-    std::cout << std::endl;
-    std::cout << "S: ";
-    for (std::list<int>::iterator it = S.begin(); it != S.end(); ++it)
-        std::cout << *it << " ";
-    std::cout << std::endl;
-    std::cout << "Insertion Order: ";
-    for (std::list<int>::iterator it = insertionOrder.begin(); it != insertionOrder.end(); ++it)
-        std::cout << *it << " ";
-    std::cout << std::endl;
     for (std::list<int>::iterator it = insertionOrder.begin(); it != insertionOrder.end(); ++it)
     {
         int idx = *it;
@@ -313,16 +300,10 @@ void PmergeMe::insert(std::list<std::pair<int, int> > const &pairs, std::list<in
                 break;
             }
         }
-        std::cout << "idx to insert = " << idx << "=" << small;
         int insertPos = binarySearch(S, small, *pos);
         std::list<int>::iterator start = S.begin();
         std::advance(start, insertPos);
-        std::cout << " at " << *start << std::endl;
         S.insert(start, small);
-        std::cout << "after S: ";
-        for (std::list<int>::iterator it = S.begin(); it != S.end(); ++it)
-            std::cout << *it << " ";
-        std::cout << std::endl;
     }
 }
 
@@ -343,7 +324,7 @@ std::list<int> PmergeMe::sort(std::list<int> &array)
             pairs.push_back(std::make_pair(*it2, *it));
         }
         else
-            unpaired = *it;
+            unpaired = *it2;
         if (it == array.end())
             break;
     }
@@ -353,25 +334,18 @@ std::list<int> PmergeMe::sort(std::list<int> &array)
         bigs.push_back(it->second);
     }
     std::list<int> S = sort(bigs);
-    std::cout << "before pairs: ";
-    for (std::list<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it)
-        std::cout << "[" << it->first << ", " << it->second << "], ";
-    std::cout << std::endl;
     if (!pairs.empty())
     {
+        std::list<int>::iterator first = S.begin();
         for (std::list<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it)
         {
-            if (it->second == *(S.begin()))
+            if (it->second == *first)
             {
                 S.insert(S.begin(), it->first);
                 break;
             }
         }
     }
-    std::cout << "before S: ";
-    for (std::list<int>::iterator it = S.begin(); it != S.end(); ++it)
-        std::cout << *it << " ";
-    std::cout << std::endl;
     if (!pairs.empty())
         insert(pairs, S);
     if (unpaired != -1)
