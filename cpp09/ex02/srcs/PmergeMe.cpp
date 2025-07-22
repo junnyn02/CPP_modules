@@ -35,7 +35,7 @@ PmergeMe::PmergeMe(char **av, int &ac)
      std::clock_t    endL = std::clock();
     double  timeV = static_cast<double>(endV - startV) / CLOCKS_PER_SEC;
     double  timeL = static_cast<double>(endL - startL) / CLOCKS_PER_SEC;
-    std::cout << "After:\t";
+    std::cout << std::endl << "After:\t";
     for (std::list<int>::iterator it = _list.begin(); it != _list.end(); ++it)
         std::cout << *it << " ";
     std::cout << std::endl;
@@ -361,10 +361,23 @@ std::list<int> PmergeMe::sort(std::list<int> &array)
 
 bool    PmergeMe::onlyDigit(const char *input) const
 {
-    for (int i = 0; input[i] != '\0' ; i++)
+    int i = 0;
+    if (input[i] == '-' || input[i] == '+')
+        i++;
+    if (input[i] == '\0')
+        return false;
+    while (input[i] != '\0')
     {
-        if (!isdigit(input[i]) && input[i] != '-' && input[i] != '+')
+        if (!isdigit(input[i]))
             return false;
+        i++;
     }
+    // for (int i = 0; input[i] != '\0' ; i++)
+    // {
+    //     if ((input[i] == '-' || input[i] == '+') && (input[i + 1] != '\0' && !isdigit(input[i + 1])))
+    //         return false;
+    //     if (!isdigit(input[i]))
+    //         return false;
+    // }
     return true;
 }
