@@ -31,7 +31,7 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &assign)
 
 bool    BitcoinExchange::checkFormat(std::string const &input, std::string const &csv)
 {
-    if (input.compare(input.size() - 4, 4, ".txt") != 0)
+    if (input.compare(input.size() - 4, 4, ".txt") != 0 && input.compare(input.size() - 4, 4, ".csv") != 0)
         return false;
     if (csv.compare(csv.size() - 4, 4, ".csv") != 0)
         return false;
