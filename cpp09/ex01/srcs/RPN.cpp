@@ -82,17 +82,17 @@ void    RPN::calcul(char const &c)
     if (c == '+')
     {
         if (!add(a, b))
-           throw("Error: Overflow");
+           throw(std::runtime_error("Error: Overflow"));
     }
     else if (c == '-')
     {
         if (!substract(a, b))
-           throw("Error: Overflow");
+           throw(std::runtime_error("Error: Overflow"));
     }
     else if (c == '*')
     {
         if (!multiply(a, b))
-           throw("Error: Overflow");
+           throw(std::runtime_error("Error: Overflow"));
     }
     else if (c == '/')
     {
@@ -119,7 +119,7 @@ void    RPN::pushNumber(std::string::iterator &it)
     }
     long l = strtol(std::string(tmp, it).c_str(), NULL, 10);
     if (errno == ERANGE && l < std::numeric_limits<int>::min())
-        throw(std::runtime_error("Error: not a positive number"));
+        throw(std::runtime_error("Error: too large a number"));
     if (errno == ERANGE && l > std::numeric_limits<int>::max())
         throw(std::runtime_error("Error: too large a number"));
     _stack.push(l);
